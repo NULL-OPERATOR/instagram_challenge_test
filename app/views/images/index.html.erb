@@ -1,6 +1,6 @@
-<%- model_class = Image -%>
+<!-- <%- model_class = Image -%> -->
 <div class="page-logo">
-  <!-- <h1><%= "INSTOGARM" %></h1> -->
+  <h1><%= "INSTOGARM" %></h1>
 </div>
 <table class="table table-striped">
   <thead>
@@ -16,14 +16,15 @@
   <tbody>
     <% @images.each do |image| %>
       <tr>
-      <img class="img"></img>
         <td><%= image.description %><br></td>
       </tr>
-      <!-- <tr> -->
+      <tr>
         <!-- <td><%= link_to image.id, image_path(image) %></td> -->
         <!-- <td><%= image.name %></td> -->
         <!-- <%= image.url %> -->
+        <td><div class="img"></div></td>
         <td>
+          <!-- src="<%= image.url %>"  -->
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_image_path(image), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -35,7 +36,7 @@
                       :class => 'btn btn-xs btn-danger' %>
         <%= image.created_at %>
         </td>
-      <!-- </tr> -->
+      </tr>
     <% end %>
   </tbody>
 </table>
