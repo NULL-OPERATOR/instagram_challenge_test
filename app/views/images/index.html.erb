@@ -2,29 +2,14 @@
 <div class="page-logo">
   <h1><%= "INSTOGARM" %></h1>
 </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <!-- <th><%= model_class.human_attribute_name(:id) %></th> -->
-      <!-- <th><%= model_class.human_attribute_name(:name) %></th> -->
-      <!-- <th><%= model_class.human_attribute_name(:url) %></th> -->
-      <!-- <th><%= model_class.human_attribute_name(:description) %></th> -->
-      <!-- <th><%= model_class.human_attribute_name(:created_at) %></th> -->
-      <!-- <th><%=t '.actions', :default => t("helpers.actions") %></th> -->
-    </tr>
-  </thead>
   <tbody>
     <% @images.each do |image| %>
+      <!-- <tr> -->
+
       <tr>
-        <td><%= image.description %><br></td>
-      </tr>
-      <tr>
-        <!-- <td><%= link_to image.id, image_path(image) %></td> -->
-        <!-- <td><%= image.name %></td> -->
-        <!-- <%= image.url %> -->
         <td><div class="img"></div></td>
-        <td>
-          <!-- src="<%= image.url %>"  -->
+          <%= image_tag image.avatar.url(:thumb) %>
+        <td><%= image.description %><br></td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_image_path(image), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -37,6 +22,7 @@
         <%= image.created_at %>
         </td>
       </tr>
+      <!-- </tr> -->
     <% end %>
   </tbody>
 </table>
